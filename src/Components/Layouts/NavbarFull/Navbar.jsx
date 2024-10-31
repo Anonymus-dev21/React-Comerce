@@ -13,7 +13,7 @@ export const Navbar = () => {
           </span>
         </div>
         <div>
-          <ul className="flex w-full text-white max-md:hidden">
+          <ul className="flex w-full text-white max-800:hidden">
             <div className="flex flex-col group">
               <li className="mx-2 group-hover:text-pink-500 transition-all duration-300">
                 <Link>Inicio</Link>
@@ -35,8 +35,12 @@ export const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center justify-between">
-          <CartWidget />
-          <Theme />
+          <div className="max-xxsm:mx-3">
+            <CartWidget />
+          </div>
+          <div className="max-xxsm:hidden ">
+            <Theme />
+          </div>
           <NavbarResponsive />
         </div>
       </nav>

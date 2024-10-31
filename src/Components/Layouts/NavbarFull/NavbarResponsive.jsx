@@ -2,6 +2,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Theme } from "../../common/Theme";
 export const NavbarResponsive = () => {
   const [hamburgerOpen, setHamburger] = useState(false);
   const toggleNav = () => {
@@ -33,6 +34,9 @@ export const NavbarResponsive = () => {
           </div>
         </div>
 
+        <div className="max-xxsm:flex hidden absolute top-5 right-5">
+          <Theme />
+        </div>
         <ul
           className=" flex flex-col w-full h-full absolute top-16  items-end pr-10 justify-around pb-12 font-[Poppins] text-slate-100 mr-5 text-lg font-semibold tracking-wider"
           onClick={toggleNav}

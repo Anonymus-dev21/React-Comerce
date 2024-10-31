@@ -44,7 +44,7 @@ export const Theme = () => {
         ></path>
       </svg>
       <svg
-        className="absolute stroke-yellow-500 w-10 h-21 duration-300 peer-checked:opacity-0 top-[-9px] opacity-100"
+        className="absolute stroke-yellow-500 w-10 h-21 duration-300 peer-checked:opacity-0 top-[-9px] max-xxsm:top-[-29px] opacity-100"
         height="100"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 100 100"

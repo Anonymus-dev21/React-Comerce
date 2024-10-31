@@ -1,7 +1,14 @@
 import { IoArrowBack } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { CounterContainer } from "../../common/Counter/CounterContainer";
-export const ItemDetail = ({ productDetail }) => {
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+import { useEffect } from "react";
+export const ItemDetail = ({ productDetail, onAdd, cantidad, setCantidad }) => {
+  const { stockMax, setStockMax } = useContext(CartContext);
+  useEffect(() => {
+    setStockMax(false);
+  }, [productDetail, setStockMax]);
   return (
     <>
       <div className="w-full h-[100px] relative mb-20">
@@ -27,7 +34,27 @@ export const ItemDetail = ({ productDetail }) => {
             <p className="text-xl font-[Urbanist] font-medium tracking-wide  mt-5 text-pretty">
               {productDetail.descripcionLarga}
             </p>
-            <CounterContainer productDetail={productDetail} />
+            <CounterContainer
+              productDetail={productDetail}
+              onAdd={onAdd}
+              cantidad={cantidad}
+              setCantidad={setCantidad}
+            />
+            {stockMax && (
+              <div className="text-red-600 py-2">
+                <p className="font-[Poppins] font-bold text-sm">
+                  *Ya tienes el stock máximo agregado en el carrito*
+                </p>
+              </div>
+            )}
+            <div
+              className="py-[6px] px-2  w-fit rounded-md bg-brown-900 text-[16px] text-white font-semibold font-[Poppins] tracking-wide hover:tracking-wider hover:underline transition-all duration-300 cursor-pointer"
+              onClick={() => {
+                onAdd(cantidad);
+              }}
+            >
+              <span>Agregar al carrito</span>
+            </div>
           </div>
         </div>
       </div>

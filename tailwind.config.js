@@ -27,6 +27,12 @@ export default {
         'max-330': {
           'max': '330px'
         },
+        'max-500': {
+          'max': '500px'
+        },
+        'max-600': {
+          'max': '600px'
+        },
         'max-sm': {
           'max': '640px'
         }, // max-width: 640px
@@ -35,6 +41,9 @@ export default {
         }, // max-width: 768px
         'max-800': {
           'max': '800px'
+        },
+        'max-995': {
+          'max': '995px'
         },
         'max-lg': {
           'max': '1024px'
