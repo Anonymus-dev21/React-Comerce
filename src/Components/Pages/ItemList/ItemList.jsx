@@ -10,7 +10,6 @@ export const ItemList = ({
   categoria,
   // agregarProductosFirebase,
 }) => {
-  // console.log("items", items);
   return (
     <>
       {/* <button

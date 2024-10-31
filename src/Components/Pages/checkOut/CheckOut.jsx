@@ -12,7 +12,7 @@ export const CheckOut = () => {
     email: "",
     phone: "",
   });
-  const { cart, TotalPrecio, cleanCart } = useContext(CartContext);
+  const { cart, TotalPrecio, cleanCart, totalProd } = useContext(CartContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,23 +22,27 @@ export const CheckOut = () => {
       total: TotalPrecio,
       date: new Date(),
     };
-    setIsLoading(true);
-    console.log(order);
-    let refCollection = collection(db, "orders");
-    addDoc(refCollection, order)
-      .then((resp) => {
-        setOrderId(resp.id);
-        updateStock();
-        cleanCart();
-      })
-      .finally(() => setIsLoading(false));
-    const updateStock = () => {
-      cart.forEach((item) => {
-        updateDoc(doc(db, "productos", item.id), {
-          stock: item.stock - item.cantidad,
+
+    if (totalProd > 0) {
+      setIsLoading(true);
+      let refCollection = collection(db, "orders");
+      addDoc(refCollection, order)
+        .then((resp) => {
+          setOrderId(resp.id);
+          updateStock();
+          cleanCart();
+        })
+        .finally(() => setIsLoading(false));
+      const updateStock = () => {
+        cart.forEach((item) => {
+          updateDoc(doc(db, "productos", item.id), {
+            stock: item.stock - item.cantidad,
+          });
         });
-      });
-    };
+      };
+    } else {
+      alert("No hay productos en el carrito, agrega al menos uno");
+    }
   };
 
   const handleChange = (e) => {

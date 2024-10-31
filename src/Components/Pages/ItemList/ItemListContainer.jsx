@@ -60,7 +60,7 @@ export const ItemListContainer = () => {
   // });
   // getProducts
   //   .then((data) => {
-  //     console.log("Productos obtenidos:", data);
+  //
   //     setItems(data);
   //     setMensajeError(data.length === 0);
   //   })
@@ -80,12 +80,10 @@ export const ItemListContainer = () => {
     const itemsCollection = collection(db, "productos");
     let filters = [];
 
-    // Agregar filtro de categoría, si existe
     if (categoryName) {
       filters.push(where("categoria", "==", categoryName));
     }
 
-    // Agregar filtro de precios
     if (precios === "10 - 30$") {
       filters.push(where("precio", ">=", 10), where("precio", "<=", 30));
     } else if (precios === "30 - 50$") {
@@ -104,13 +102,11 @@ export const ItemListContainer = () => {
         }));
         if (productos.length > 0) {
           setItems(productos);
-          setMensajeError(false); // Asegúrate de ocultar el mensaje de error
+          setMensajeError(false);
         } else {
-          setMensajeError(true); // Mostrar mensaje de error
+          setMensajeError(true);
           setItems([]);
-        } // Limpiar los items si no hay productos
-
-        // console.log(productos);
+        }
       })
       .finally(() => setIsLoading(false));
   }, [categoryName, precios]);

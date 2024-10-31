@@ -17,7 +17,6 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     const docRef = doc(db, "productos", id);
     getDoc(docRef).then((resp) => {
-      console.log({ ...resp.data() });
       setProductDetail({ ...resp.data(), id: resp.id });
     });
   }, [id]);
@@ -52,7 +51,6 @@ export const ItemDetailContainer = () => {
       });
       addToCart(productosEnCarrito);
     }
-    console.log(cart);
   };
 
   return (

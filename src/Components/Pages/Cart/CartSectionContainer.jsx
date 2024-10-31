@@ -13,7 +13,7 @@ export const CartSectionContainer = () => {
     totalProd,
     TotalPrecio,
   } = useContext(CartContext);
-  console.log(cart);
+
   const sumar = (id) => {
     let nuevoCarrito = cart.map((product) => {
       if (product.id === id) {

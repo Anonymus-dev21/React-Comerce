@@ -23,7 +23,6 @@ export const CartSection = ({
             <div className="PRDUCTS_CONTAINER flex max-xl:flex-col max-xl:items-center">
               <div className="w-full">
                 {cart.map((product) => {
-                  console.log("Current product:", product);
                   return (
                     <CartProduct
                       key={product.id}
