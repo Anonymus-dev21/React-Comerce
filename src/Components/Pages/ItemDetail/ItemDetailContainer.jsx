@@ -36,8 +36,8 @@ export const ItemDetailContainer = () => {
         if (elemento.id === productDetail.id) {
           if (elemento.cantidad + quantity <= productDetail.stock) {
             toast.success("Se agrego correctamente", {
-              duration: 2000,
-              position: "bottom-right",
+              duration: 1000,
+              position: "top-left",
             });
             return { ...elemento, cantidad: elemento.cantidad + quantity };
           } else {
@@ -51,8 +51,8 @@ export const ItemDetailContainer = () => {
       setCart(nuevoCarrito);
     } else {
       toast.success("Se agrego correctamente", {
-        duration: 2000,
-        position: "bottom-right",
+        duration: 1000,
+        position: "top-left",
       });
       addToCart(productosEnCarrito);
     }
