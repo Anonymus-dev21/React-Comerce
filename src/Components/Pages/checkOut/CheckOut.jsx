@@ -114,10 +114,10 @@ export const CheckOut = () => {
               Gracias por tu compra!
             </h1>
           </div>
-          <div>
+          <div className="flex">
             <span className="text-center font-[Urbanist] text-[25px] font-semibold text-brown-800 dark:text-slate-100">
               Tu numero de orden es:{" "}
-              <span className="text-brown-500 dark:text-brown-300">
+              <span className="text-brown-500 text-center dark:text-brown-300">
                 {orderId}
               </span>
             </span>
