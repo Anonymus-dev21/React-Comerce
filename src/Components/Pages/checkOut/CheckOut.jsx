@@ -4,9 +4,13 @@ import { CartContext } from "../../Context/CartContext";
 import { db } from "../../../firebase/configDb";
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { Loader } from "../../common/loader";
+import Swal from "sweetalert2";
 export const CheckOut = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [userError, setUserError] = useState(false);
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -16,6 +20,17 @@ export const CheckOut = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const handleErrorsForm = () => {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Completa correctamente los campos!",
+      });
+    };
+    if (emailError || phoneError || userError) {
+      handleErrorsForm();
+      return;
+    }
     const order = {
       buyer: user,
       items: cart,
@@ -47,7 +62,45 @@ export const CheckOut = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+
+    let error = false;
+
+    if (name === "email") {
+      const emailRgx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRgx.test(value)) {
+        setEmailError(true);
+        error = true;
+        setUser((prev) => ({ ...prev, email: "" }));
+      } else {
+        setEmailError(false);
+      }
+    }
+
+    if (name === "phone") {
+      const phoneRgx = /^[0-9]{10}$/;
+      if (!phoneRgx.test(value)) {
+        setPhoneError(true);
+        error = true;
+        setUser((prev) => ({ ...prev, phone: "" }));
+      } else {
+        setPhoneError(false);
+      }
+    }
+
+    if (name === "name") {
+      const nameRgx = /^[A-Za-zÀ-ÿ\s'-.]+$/;
+      if (!nameRgx.test(value)) {
+        setUserError(true);
+        setUser((prev) => ({ ...prev, name: "" }));
+        error = true;
+      } else {
+        setUserError(false);
+      }
+    }
+
+    if (!error) {
+      setUser({ ...user, [name]: value });
+    }
   };
   if (isLoading) {
     return <Loader />;
@@ -99,6 +152,11 @@ export const CheckOut = () => {
                         name="email"
                         onChange={handleChange}
                       />
+                      {emailError && (
+                        <p className="text-red-500 text-xs mt-1">
+                          Debe ingresar un email valido
+                        </p>
+                      )}
                     </div>
                     <div className="mt-4">
                       <label className="sr-only">Nombre</label>
@@ -110,6 +168,11 @@ export const CheckOut = () => {
                         name="name"
                         onChange={handleChange}
                       />
+                      {userError && (
+                        <p className="text-red-500 text-xs mt-1">
+                          Debe ingresar un nombre valido
+                        </p>
+                      )}
                     </div>
 
                     <div className="mt-4">
@@ -122,6 +185,11 @@ export const CheckOut = () => {
                         name="phone"
                         onChange={handleChange}
                       />
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1">
+                          Debe ingresar un telefono de 10 digitos numericos
+                        </p>
+                      )}
                     </div>
                   </div>
 

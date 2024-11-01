@@ -5,10 +5,13 @@ export const Filter = ({ priceTarget, precios, categoria }) => {
   return (
     <>
       <div className="CONTAINER__FILTERS w-full  flex text-gray-900 dark:text-white">
-        <div className="FILTROS flex max-sm:flex-col items-center">
-          <span className="m-5 font-[Poppins] font-medium"> Filtrar por:</span>
+        <div className="FILTROS flex max-sm:flex-col items-center max-sm:items-start">
+          <span className="m-5 max-sm:ml-3 max-sm:my-5 font-[Poppins] font-medium max-sm:text-left">
+            {" "}
+            Filtrar por:
+          </span>
           <div>
-            <div className="dropdown group">
+            <div className="dropdown group max-sm:ml-3">
               <div className="flex ">
                 {categoria ? (
                   <button className="font-[Poppins] font-medium">

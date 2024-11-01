@@ -7,18 +7,23 @@ import { CartContext } from "../../Context/CartContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/configDb";
 import { toast } from "sonner";
+import { Loader } from "../../common/loader";
 export const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
   const { cart, addToCart, setCart, stockMax, setStockMax } =
     useContext(CartContext);
   const [cantidad, setCantidad] = useState(1);
   useEffect(() => {
+    setIsLoading(true);
     const docRef = doc(db, "productos", id);
-    getDoc(docRef).then((resp) => {
-      setProductDetail({ ...resp.data(), id: resp.id });
-    });
+    getDoc(docRef)
+      .then((resp) => {
+        setProductDetail({ ...resp.data(), id: resp.id });
+      })
+      .finally(() => setIsLoading(false));
   }, [id]);
 
   const onAdd = (quantity) => {
@@ -54,14 +59,20 @@ export const ItemDetailContainer = () => {
   };
 
   return (
-    <ItemDetail
-      productDetail={productDetail}
-      onAdd={onAdd}
-      cantidad={cantidad}
-      setCantidad={setCantidad}
-      stockMax={stockMax}
-      setStockMax={setStockMax}
-    />
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ItemDetail
+          productDetail={productDetail}
+          onAdd={onAdd}
+          cantidad={cantidad}
+          setCantidad={setCantidad}
+          stockMax={stockMax}
+          setStockMax={setStockMax}
+        />
+      )}
+    </>
   );
 };
 /******  be2775fd-29c1-4ed9-9ca0-26258d7a2b7e  *******/

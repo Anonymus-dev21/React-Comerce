@@ -6,6 +6,7 @@ import { CartContext } from "../../Context/CartContext";
 import { useEffect } from "react";
 export const ItemDetail = ({ productDetail, onAdd, cantidad, setCantidad }) => {
   const { stockMax, setStockMax } = useContext(CartContext);
+
   useEffect(() => {
     setStockMax(false);
   }, [productDetail, setStockMax]);

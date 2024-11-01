@@ -92,6 +92,7 @@ export const ItemListContainer = () => {
       filters.push(where("precio", ">=", 50));
     }
 
+    // const prodcutosStock = query(itemsCollection, where("stock", ">", 0));
     const filteredProducts = query(itemsCollection, ...filters);
 
     getDocs(filteredProducts)
@@ -101,7 +102,8 @@ export const ItemListContainer = () => {
           ...doc.data(),
         }));
         if (productos.length > 0) {
-          setItems(productos);
+          setItems(productos.filter((product) => product.stock > 0));
+
           setMensajeError(false);
         } else {
           setMensajeError(true);
