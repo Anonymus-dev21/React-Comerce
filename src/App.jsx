@@ -7,6 +7,9 @@ import { Error404 } from "./Components/common/Error404";
 import { CartProvider } from "./Components/Context/CartContext";
 import { CheckOut } from "../src/Components/Pages/checkOut/CheckOut";
 import { Toaster } from "sonner";
+import { LandingContainer } from "./Components/Pages/Home/LandingContainer";
+import { Footer } from "./Components/Layouts/NavbarFull/Footer";
+import { ContactoContainer } from "./Components/Pages/contacto/contactoContainer";
 function App() {
   return (
     <BrowserRouter>
@@ -14,16 +17,20 @@ function App() {
       <CartProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/productos" element={<ItemListContainer />} />
+          <Route path="/" element={<LandingContainer />} />
           <Route
             path="/category/:categoryName"
             element={<ItemListContainer />}
           />
+          <Route path="/contacto" element={<ContactoContainer />} />
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
           <Route path="/CartSection" element={<CartSectionContainer />} />
           <Route path="/Checkout" element={<CheckOut />}></Route>
+
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
+        <Footer />
       </CartProvider>
     </BrowserRouter>
   );

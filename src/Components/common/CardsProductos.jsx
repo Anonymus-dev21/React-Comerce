@@ -6,7 +6,7 @@ export const ProductCard = ({ imagen, titulo, desc, id, precioItem }) => {
         <div className="imgbox w-full h-[250px]">
           <img
             src={imagen}
-            className="object-center object-cover w-full h-full rounded-se-2xl transition-all duration-400"
+            className=" w-full h-full rounded-se-2xl transition-all duration-400"
           />
         </div>
       </Link>

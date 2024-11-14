@@ -16,7 +16,7 @@ export const CartSection = ({
     <>
       {cart.length > 0 ? (
         <>
-          <h1 className="font-[Poppins] font-bold text-[50px] text-brown-900 dark:text-brown-300 text-center p-5">
+          <h1 className="font-[Poppins] font-bold text-[50px] text-brown-900 dark:text-purple-500 text-center p-5">
             Bienvenido al carrito!
           </h1>
           <div className="GENERAL_CONTAINER">
@@ -39,15 +39,16 @@ export const CartSection = ({
                 })}
               </div>
               <div className=" w-[30%]]  flex  justify-end max-600:justify-center">
-                <div className="RESUMENCONTAINER  mx-10 max-995:mx-0  lg:h-[350px] h-[280px] bg-black py-5 px-7 rounded-[30px]  ">
+                <div className="RESUMENCONTAINER  mx-10 max-995:mx-0  lg:h-[350px] h-[280px] bg-black dark:bg-brown-800 py-5 px-7 rounded-[30px]  ">
                   <div className="precioTotal flex justify-between my-5">
                     <div>
-                      <span className="font-[Poppins] font-bold text-2xl text-white dark:text-brown-300">
+                      <span className="font-[Poppins] font-bold text-2xl text-white">
                         Total:
                       </span>
                     </div>
                     <div>
-                      <span className="font-[Poppins] font-bold text-2xl text-white dark:text-brown-300">
+                      <span className="font-[Poppins] font-bold text-2xl text-white">
+                        {" "}
                         {total}
                       </span>
                     </div>
@@ -55,12 +56,12 @@ export const CartSection = ({
 
                   <div className="TotalProductos flex justify-between my-5">
                     <div>
-                      <span className="font-[Poppins] font-bold text-2xl text-white dark:text-brown-300">
+                      <span className="font-[Poppins] font-bold text-2xl text-white">
                         Libros:
                       </span>
                     </div>
                     <div>
-                      <span className="font-[Poppins] font-bold text-2xl text-white dark:text-brown-300">
+                      <span className="font-[Poppins] font-bold text-2xl text-white ">
                         {totalProd}
                       </span>
                     </div>
@@ -96,7 +97,7 @@ export const CartSection = ({
                 No hay productos en el Carrito
               </p>
             </div>
-            <Link to="/">
+            <Link to="/productos">
               <div className="py-[6px] px-2  my-4 w-fit rounded-md bg-brown-900 text-[16px] text-white font-semibold font-[Poppins] tracking-wide hover:tracking-wider hover:underline transition-all duration-300 cursor-pointer">
                 <span>Agregar Productos</span>
               </div>

@@ -27,6 +27,10 @@ export const CheckOut = () => {
         text: "Completa correctamente los campos!",
       });
     };
+    if (user.name === "" || user.email === "" || user.phone === "") {
+      handleErrorsForm();
+      return;
+    }
     if (emailError || phoneError || userError) {
       handleErrorsForm();
       return;

@@ -11,10 +11,10 @@ export default {
         'brown': {
           900: 'rgb(76,61,61)', // Marrón oscuro
           800: 'rgb(75,61,61)', // Marrón cacao
-          700: '#8b5e3c', // Marrón madera
-          600: '#a97142', // Marrón bronce
-          500: '#b58955', // Marrón medio
-          400: '#c69b6d', // Marrón arena
+          700: 'rgb(90, 75, 75)', // Marrón madera
+          600: 'rgb(105, 89, 89)',
+500: 'rgb(120, 103, 103)',
+400: 'rgb(135, 118, 118)', // Marrón arena
           300: 'rgb(210,180,140)', // Marrón claro
           200: '#e2c3a3', // Beige
           100: '#f0e1d4',

@@ -75,3 +75,29 @@ h4 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.mySwiper {
+    overflow: hidden;
+  }
+  
+  
+  
+  #nextbutton {
+    color: rgb(37, 20, 4);
+    position: absolute;
+    right: 0;
+  }
+  
+  #prevbutton {
+    color: rgb(37, 20, 4);
+    position: absolute;
+    left: 0;
+  }
+  .swiper-pagination {
+  position: absolute;
+  bottom: -6px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(75, 1, 109) !important;
+}

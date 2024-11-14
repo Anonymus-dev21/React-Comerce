@@ -1,9 +1,11 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
 export const CartContext = createContext();
 
+const carritoInicial = JSON.parse(localStorage.getItem("carrito")) || [];
+
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(carritoInicial);
   const [stockMax, setStockMax] = useState(false);
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -21,6 +23,10 @@ export const CartProvider = ({ children }) => {
       )
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(cart));
+  }, [cart]);
 
   const removeProduct = (id) => {
     setCart(cart.filter((product) => product.id !== id));

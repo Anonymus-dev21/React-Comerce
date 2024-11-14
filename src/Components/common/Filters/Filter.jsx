@@ -27,7 +27,7 @@ export const Filter = ({ priceTarget, precios, categoria }) => {
               </div>
 
               <div className="dropdown-content">
-                <Link to="/">
+                <Link to="/productos">
                   <div className="options">Todos</div>
                 </Link>
                 <Link to="/category/Fantasía">

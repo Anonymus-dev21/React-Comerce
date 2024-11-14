@@ -13,7 +13,10 @@ export const ItemDetail = ({ productDetail, onAdd, cantidad, setCantidad }) => {
   return (
     <>
       <div className="w-full h-[100px] relative mb-20">
-        <Link to="/">
+        <Link
+          to="/productos
+        "
+        >
           <IoArrowBack className="absolute top-10 left-5 text-5xl text-black dark:text-slate-100" />
         </Link>
       </div>
@@ -22,7 +25,7 @@ export const ItemDetail = ({ productDetail, onAdd, cantidad, setCantidad }) => {
         <div className="CONTAINERDETAIL w-[80%] m-auto flex justify-center min-h-[500px] max-md:flex-col max-lg:w-[92%] ">
           <div className=" IMAGEN CONTAINER w-[50%] min-h-full max-md:h-[300px] max-md:w-full">
             <img
-              src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src={productDetail.imagen}
               alt="imagen"
               className="w-full h-full object-cover"
             />

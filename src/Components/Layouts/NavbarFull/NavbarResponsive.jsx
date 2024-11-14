@@ -56,7 +56,7 @@ export const NavbarResponsive = () => {
           </div>
           <div className="flex-col flex group">
             <li className="mt-2 hover:text-pink-500 transition-all duration-300">
-              Contacto
+              <Link to={"/contacto"}>Contacto</Link>
             </li>
             <span className="w-0 mt-[-2px] h-[2px] bg-pink-500 group-hover:w-full transition-all duration-200"></span>
           </div>
