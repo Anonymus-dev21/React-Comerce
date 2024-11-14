@@ -27,7 +27,7 @@ export const Theme = () => {
         className=" label flex z-10 items-center peer relative justify-center w-10 h-10 shadow-lg duration-300 [box-shadow:1px_1px_0px_1px_#eab92d] border-0 dark:border-[1px] border-gray-800 peer-checked:border-0 peer-checked:border-gray-800 rounded-lg cursor-pointer text-neutral-50 peer-checked:[box-shadow:1px_1px_0px_1px_rgb(138,43,226)] peer-checked:hover:[box-shadow:3px_1px_0px_1px_rgb(180,97,229)] hover:[box-shadow:3px_1px_0px_1px_#1e1e1e]"
       ></label>
       <svg
-        className="absolute stroke-purple-700 w-10 h-21 duration-300 peer-checked:opacity-100 opacity-0 top-[-9px]"
+        className="absolute stroke-purple-700 w-10 h-21 duration-300 peer-checked:opacity-100 max-xxsm:top-[-29px] opacity-0 top-[-9px]"
         height="100"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 100 100"

@@ -43,14 +43,14 @@ export const NavbarResponsive = () => {
         >
           <div className="flex flex-col group">
             <li className="mx-2 group-hover:text-pink-500 transition-all duration-300">
-              Inicio
+              <Link to={"/"}>Inicio</Link>
             </li>
             <span className="w-0 mt-[-2px] h-[2px] bg-pink-500 group-hover:w-full transition-all duration-200"></span>
           </div>
 
           <div className="flex-col flex group">
             <li className="mt-2 group-hover:text-pink-500 transition-all duration-300">
-              <Link to="/"> Productos</Link>
+              <Link to="/productos"> Productos</Link>
             </li>
             <span className="w-0 mt-[-2px] h-[2px] bg-pink-500 group-hover:w-full transition-all duration-200"></span>
           </div>
