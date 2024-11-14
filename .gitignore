@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+/src/ProductsMock.js
+
+
 
 

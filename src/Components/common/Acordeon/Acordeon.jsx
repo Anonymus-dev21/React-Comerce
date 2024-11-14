@@ -19,7 +19,7 @@ export const Acordeon = ({ isOpen, handleToggle, titulo, desc }) => {
         <div
           className={`acordeon__dsc px-5 py-3 overflow-hidden font-[Urbanist] transition-all ease-in-out duration-1000 tracking-wider ${
             isOpen
-              ? " max-h-[100px] bg-brown-700  rounded-b-2xl block"
+              ? " max-h-fit bg-brown-700  rounded-b-2xl block"
               : " max-h-0 "
           }`}
         >

@@ -21,7 +21,7 @@ export const Contacto = () => {
     phone: "",
     message: "",
   });
-  console.log(userDates);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -112,7 +112,6 @@ export const Contacto = () => {
         setMessageError(false);
       }
     }
-    console.log(error);
     if (!error) {
       setUserDates((prev) => ({ ...prev, [name]: value }));
     }
@@ -134,13 +133,13 @@ export const Contacto = () => {
 
             <p className="font-[Urbanist] font-semibold tracking-wider text-gray-900 dark:text-white  text-[20px]">
               Hola! Esta es la sección de contacto estamos a disposicon de
-              cualquier duda que pueda llegar a surgurte! Deja tu mensaje y
+              cualquier duda que pueda llegar a surgirte! Deja tu mensaje y
               responderemos a la brevedad.
             </p>
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="TOPINPUTS  grid grid-cols-2 gap-5">
+            <div className="TOPINPUTS  grid grid-cols-2 gap-5 max-sm:grid-cols-1 max-sm:gap-0">
               <div className=" relative">
                 <input
                   className="w-full my-5 py-3 px-4 placeholder:text-gray-500  bg-slate-50 outline-transparent dark:outline-none dark:border-gray-400  rounded-md border-2 border-grey-700  "
