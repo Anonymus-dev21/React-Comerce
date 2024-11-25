@@ -103,7 +103,7 @@ export const Contacto = () => {
     }
 
     if (name === "message") {
-      const msjRgx = /^(.*[a-zA-Z].*){10,}.*$/;
+      const msjRgx = /^(?=.*[a-zA-Z])[\s\S]{10,}$/;
       if (!msjRgx.test(value)) {
         setMessageError(true);
         error = true;

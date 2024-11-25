@@ -21,9 +21,9 @@ export const ItemDetail = ({ productDetail, onAdd, cantidad, setCantidad }) => {
         </Link>
       </div>
 
-      <div className="w-full min-h-dvh flex flex-col items center">
+      <div className="w-full min-h-dvh flex flex-col  items center my-10">
         <div className="CONTAINERDETAIL w-[80%] m-auto flex justify-center min-h-[500px] max-md:flex-col max-lg:w-[92%] ">
-          <div className=" IMAGEN CONTAINER w-[50%] min-h-full max-md:h-[300px] max-md:w-full">
+          <div className=" IMAGEN CONTAINER w-[50%] min-h-full max-md:h-[300px] min-intermedio:min-h-fit max-md:w-full">
             <img
               src={productDetail.imagen}
               alt="imagen"

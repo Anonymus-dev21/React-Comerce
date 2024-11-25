@@ -8,9 +8,9 @@ export const Footer = () => {
   return (
     <footer className="bg-brown-800 text-slate-50">
       <div className="footer__content ">
-        <div className="enlaces__top ">
-          <div className="title text-center w-full my-5">
-            <h3 className="text-2xl font-bold font-[Poppins]">
+        <div className="enlaces__top">
+          <div className="title text-center w-full ">
+            <h3 className="text-2xl font-bold font-[Poppins] py-6">
               Secciones de interes
             </h3>
           </div>
@@ -139,21 +139,23 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="rigths__reserved w-full text-center font-[Poppins] text-lg">
-          <i className="fa-regular fa-copyright"></i>
-          <span className="rigths">Todos los derechos reservados</span>
-        </div>
-        <div className="rigths__osky w-full text-center">
-          <span className="my font-[Poppins]">
-            Made by{" "}
-            <a
-              href="https://www.linkedin.com/in/cabral-oscar/"
-              target="_blank"
-              className="hover:underline font-bold tracking-wide"
-            >
-              Oscar Cabral
-            </a>
-          </span>
+        <div className="ALLRIGHTS pb-8">
+          <div className="rigths__reserved w-full text-center font-[Poppins] text-lg ">
+            <i className="fa-regular fa-copyright"></i>
+            <span className="rigths">Todos los derechos reservados</span>
+          </div>
+          <div className="rigths__osky w-full text-center ">
+            <div className="my font-[Poppins] ">
+              Made by{" "}
+              <a
+                href="https://www.linkedin.com/in/cabral-oscar/"
+                target="_blank"
+                className="hover:underline font-bold tracking-wide"
+              >
+                Oscar Cabral
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

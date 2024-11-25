@@ -21,7 +21,7 @@ export const NavbarResponsive = () => {
         onClick={toggleNav}
       ></div>
       <div
-        className={`fixed top-0  w-[300px]  min-h-[100vh] bg-black dark:bg-violet-950 opacity-100 rounded-s-md transition-all duration-300 z-30 ${
+        className={`fixed top-0  w-[300px] max-sm:w-[230px]  min-h-[100vh] bg-black dark:bg-violet-950 opacity-100 rounded-s-md transition-all duration-300 z-30 ${
           hamburgerOpen ? "right-0" : "right-[-500px]"
         }`}
       >
@@ -38,7 +38,7 @@ export const NavbarResponsive = () => {
           <Theme />
         </div>
         <ul
-          className=" flex flex-col w-full h-full absolute top-16  items-end pr-10 justify-around pb-12 font-[Poppins] text-slate-100 mr-5 text-lg font-semibold tracking-wider"
+          className=" flex flex-col w-full h-[70%]  absolute top-16  items-end pr-10 justify-around pb-12 font-[Poppins] text-slate-100 mr-5 text-lg max-sm:text-base font-semibold tracking-wider"
           onClick={toggleNav}
         >
           <div className="flex flex-col group">

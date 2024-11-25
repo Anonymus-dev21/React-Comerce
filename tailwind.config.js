@@ -22,7 +22,7 @@ export default {
       },
       screens: {
         'max-xxsm': {
-          'max': '400px'
+          'max': '399px'
         },
         'max-330': {
           'max': '330px'
