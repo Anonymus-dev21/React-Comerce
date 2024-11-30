@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 
 export const CartSection = ({
   cart,
+  setCart,
   sumar,
   restar,
   removeProduct,
@@ -25,6 +26,7 @@ export const CartSection = ({
                 {cart.map((product) => {
                   return (
                     <CartProduct
+                      imagen={product.imagen}
                       key={product.id}
                       id={product.id}
                       nombre={product.nombre}

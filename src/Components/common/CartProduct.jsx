@@ -6,6 +6,7 @@ export const CartProduct = ({
   nombre,
   precio,
   cantidad,
+  imagen,
   id,
   sumar,
   restar,
@@ -18,8 +19,8 @@ export const CartProduct = ({
         <div className="TITLE flex items-center  max-600:flex-col max-600:text-center max-600:w-full">
           <div className="w-[100px] h-[100px] rounded-[25px]">
             <img
-              src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="imagen"
+              src={imagen}
+              alt={imagen}
               className="w-full h-full object-cover object-center rounded-[25px] p-1"
             />
           </div>

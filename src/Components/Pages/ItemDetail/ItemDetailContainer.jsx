@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/configDb";
 import { toast } from "sonner";
 import { Loader } from "../../common/loader";
@@ -19,11 +19,20 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     setIsLoading(true);
     const docRef = doc(db, "productos", id);
-    getDoc(docRef)
-      .then((resp) => {
-        setProductDetail({ ...resp.data(), id: resp.id });
-      })
-      .finally(() => setIsLoading(false));
+
+    const unsubscribe = onSnapshot(docRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setProductDetail({ ...snapshot.data(), id: snapshot.id });
+      } else {
+        alert("El documento no existe");
+        setProductDetail(null);
+      }
+      setIsLoading(false);
+    });
+
+    return () => {
+      unsubscribe(); // Desuscribir cuando cambie el `id` o el componente se desmonte
+    };
   }, [id]);
 
   const onAdd = (quantity) => {
